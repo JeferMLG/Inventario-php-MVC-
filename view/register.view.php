@@ -42,7 +42,7 @@
 
                 <button type="submit">Registrarse</button>
             </form>
-            <p>¿Ya tienes una cuenta? <a href="login.html">Inicia sesión aquí</a></p>
+            <p>¿Ya tienes una cuenta? <a href="index.php?vista=login">Inicia sesión aquí</a></p>
         </div>
     </div>
 </body>
