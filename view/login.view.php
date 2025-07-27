@@ -16,7 +16,7 @@
                 <input type="password" id="password" name="password" required>
                 <button type="submit">Iniciar Sesión</button>
             </form>
-            <p>¿No tienes una cuenta? <a href="register.html">Regístrate aquí</a></p>
+            <p>¿No tienes una cuenta? <a href="index.php?vista=register">Regístrate aquí</a></p>
         </div>
     </div>
 </body>

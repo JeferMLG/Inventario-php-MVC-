@@ -1,9 +1,9 @@
 <?php
-require_once __DIR__ . '/../models/RegisterModel.php';
+require_once __DIR__ . '/../model/register.model.php';
 
 class RegisterController {
     public function mostrarFormulario() {
-        include __DIR__ . '/../views/register.view.php';
+        include __DIR__ . '/../view/register.view.php';
     }
 
     public function procesarRegistro() {

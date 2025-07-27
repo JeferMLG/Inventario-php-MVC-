@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Aulapp - Registro</title>
-    <link rel="stylesheet" href="../css/register.css">
+    <link rel="stylesheet" href="../view/css/register.css">
 </head>
 <body>
     <div class="container">
@@ -42,7 +42,7 @@
 
                 <button type="submit">Registrarse</button>
             </form>
-            <p>¿Ya tienes una cuenta? <a href="index.php?vista=login">Inicia sesión aquí</a></p>
+            <p>¿Ya tienes una cuenta? <a href="../index.php?vista=login">Inicia sesión aquí</a></p>
         </div>
     </div>
 </body>

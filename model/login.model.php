@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../basededatos.php';
+require_once __DIR__ . '/basededatos.php';
 
 class LoginModel {
     private $conn;
@@ -9,33 +9,28 @@ class LoginModel {
     }
 
     public function verificarCredenciales($username, $password) {
-        $sql = "SELECT login.password, usuarios.id, usuarios.nombre 
-                FROM login 
-                JOIN usuarios ON login.usuario_id = usuarios.id 
-                WHERE login.username = ?";
+        try {
+            // Consultar credenciales en tabla login
+            $sql = "SELECT login.password, usuarios.*
+                    FROM login
+                    INNER JOIN usuarios ON login.usuario_id = usuarios.id
+                    WHERE login.username = ?";
 
-        $stmt = $this->conn->prepare($sql);
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([$username]);
+            $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if (!$stmt) {
-            throw new Exception("Error en la consulta: " . $this->conn->error);
-        }
-
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result && $result->num_rows > 0) {
-            $user = $result->fetch_assoc();
-
-            if (password_verify($password, $user['password'])) {
-                return [
-                    'id' => $user['id'],
-                    'nombre' => $user['nombre'],
-                    'username' => $username
-                ];
+            // Verificar si existe el usuario y la contraseña es correcta
+            if ($usuario && password_verify($password, $usuario['password'])) {
+                return $usuario; // Retorna datos del usuario
+            } else {
+                return false;
             }
-        }
 
-        return false;
+        } catch (PDOException $e) {
+            return false;
+        }
     }
 }
+?>
+

@@ -1,6 +1,7 @@
 <?php 
 
-require_once 'controller/AuthController.php';
+require_once 'controller/login.controller.php';
+require_once 'controller/register.controller.php'; 
 
 $vista = $_GET['vista'] ?? 'login';
 $accion = $_GET['accion'] ?? null;
@@ -11,6 +12,12 @@ if ($vista === 'login' && $accion === 'validar') {
     $auth->login();
 } elseif ($vista === 'login') {
     $auth->mostrarLogin();
+} elseif ($vista === 'register' && $accion === 'registrar') {
+    $registerController = new RegisterController();
+    $registerController->procesarRegistro();
+} elseif ($vista === 'register') {
+    $registerController = new RegisterController();
+    $registerController->mostrarFormulario();
 } elseif ($vista === 'prueba') {
     include 'view/prueba.view.php';
 } else {
