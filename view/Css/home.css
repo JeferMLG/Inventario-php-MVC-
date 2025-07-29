@@ -1,0 +1,336 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #e2e3e3;
+    background-size: cover;
+    color: #333;
+    animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.dashboard-container {
+    display: flex;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    animation: fadeInMain 1.5s ease forwards;
+}
+
+@keyframes fadeInMain {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #7a7474; /* Color de fondo actualizado */
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    animation: slideDownTopbar 1s ease-in-out;
+}
+
+@keyframes slideDownTopbar {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.topbar h1 {
+    margin: 0;
+    color: #ffffff; /* Color de título */
+}
+
+.actions {
+    display: flex;
+}
+
+.actions .btn {
+    background-color: #461615;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 30px;
+    margin-left: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.actions .btn:hover {
+    background-color: #EC1B1A;
+    transform: scale(1.05);
+}
+
+.content {
+    margin-top: 20px;
+    background-color: #ffffff;
+}
+
+.widgets {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.widget {
+    background-color: rgba(176, 124, 173, 0.8); /* Color de los widgets */
+    border-radius: 5px;
+    padding: 20px;
+    flex: 1;
+    margin-right: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: scale(0.9);
+    animation: fadeInWidget 1s ease-in-out forwards;
+    animation-delay: calc(0.3s * var(--i));
+}
+
+.widget:last-child {
+    margin-right: 0;
+}
+
+@keyframes fadeInWidget {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.widget h3 {
+    margin: 0 0 10px;
+    color: #ffffff; /* Color de los títulos de widgets */
+}
+
+.alert {
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+@keyframes pulseAlert {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.doc-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.doc-table th,
+.doc-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.doc-table th {
+    background-color: #fcbdfc; /* Fondo de las cabeceras de tabla */
+    color: #140101; /* Texto de las cabeceras */
+}
+
+.doc-table tbody tr:nth-child(even) {
+    background-color: rgba(252, 164, 247, 0.8); /* Fondo alterno en las filas */
+}
+
+
+
+/*sidear*/
+
+/* General */
+.sidebar {
+    width: 250px;
+    background-color: #461615; /* Color de fondo */
+    color: #ffffff; /* Color del texto */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    height: 160vh; /* Ocupa toda la altura de la ventana */
+    border-right: 2px solid #4c4646; /* Línea divisoria en el lado derecho */
+    animation: slideInLeft 1s ease-in-out; /* Animación opcional */
+}
+
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 30px 0;
+    opacity: 0;
+    animation: slideInItem 1s ease forwards;
+    animation-delay: calc(0.2s * var(--i));
+}
+
+.Linea{
+    width: 100%; /* Largo de la línea */
+    height: 2px; /* Grosor de la línea */
+    background-color: #000; /* Color de la línea (negro) */
+    margin: -30 ; /* Espaciado arriba y abajo */
+    z-index: 1000; /* Asegura que esté encima de otros elementos */
+}
+
+.sidebar ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s, text-decoration 0.3s;
+}
+
+.sidebar ul li a:hover {
+    transform: scale(1.1);
+    color: #EC1B1A; /* Cambia el color cuando pasas el mouse */
+    text-decoration: underline;
+}
+
+.sidebar ul li i {
+    margin-right: 10px;
+}
+
+/* Animaciones */
+@keyframes fadeInLogo {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInItem {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+/* Paneles */
+.panel {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative;
+    border-top: 5px solid #461615;
+    transition: all 0.3s ease-in-out;
+}
+
+.panel:hover {
+    transform: scale(1.02);
+}
+
+.panel h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.panel p {
+    font-size: 1em;
+    margin: 0;
+}
+
+.panel .toggle-btn {
+    background: none;
+    border: none;
+    color: #461615;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.description {
+    margin-top: 10px;
+    padding: 10px 0 0;
+    font-size: 0.9em;
+    color: #555;
+    border-top: 1px solid #ddd;
+    display: none;
+}
+
+.description.hidden {
+    display: none;
+}
+
+.description:not(.hidden) {
+    display: block;
+}
+
+.dashboard-panels {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los paneles se ajusten si no caben en una fila */
+    gap: 20px; /* Espaciado entre los paneles */
+    justify-content: space-between; /* Alinea los paneles con espacio entre ellos */
+}
+
+.panel {
+    flex: 1 1 calc(33.333% - 20px); /* Cada panel ocupa un tercio del ancho menos el espacio entre paneles */
+    box-sizing: border-box; /* Asegura que el padding y borde estén dentro del ancho del panel */
+}
+
+
+/*Reloj*/
+.clock {
+    font-family: 'Courier New', Courier, monospace; /* Fuente de estilo digital */
+    font-size: 24px; /* Tamaño del texto */
+    color: #fff; /* Color del texto */
+    background-color: #461615; /* Color de fondo */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+    position: absolute; /* Ubicación absoluta */
+    top: 150px; /* Distancia desde la parte superior */
+    right: 60px; /* Distancia desde la parte derecha */
+    z-index: 100; /* Asegura que esté encima de otros elementos */
+    text-align: center; /* Centra el texto dentro del reloj */
+    transition: all 0.3s ease; /* Animación suave en hover */
+}
+
+/* Efecto hover en el reloj */
+.clock:hover {
+    background-color: #EC1B1A; /* Cambia el color de fondo al pasar el cursor */
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); /* Aumenta la sombra */
+}

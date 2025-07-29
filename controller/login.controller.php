@@ -17,7 +17,7 @@ class AuthController {
             if ($result) {
                 session_start();
                 $_SESSION['usuario'] = $result['nombre'];
-                header("Location: index.php?vista=prueba"); // Redirigir a dashboard
+                header("Location: index.php?vista=home"); // Redirigir a home
                 exit();
             } else {
                 echo "Credenciales incorrectas. <a href='index.php?vista=login'>Intentar de nuevo</a>";

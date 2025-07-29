@@ -18,8 +18,8 @@ if ($vista === 'login' && $accion === 'validar') {
 } elseif ($vista === 'register') {
     $registerController = new RegisterController();
     $registerController->mostrarFormulario();
-} elseif ($vista === 'prueba') {
-    include 'view/prueba.view.php';
+} elseif ($vista === 'home') {
+    include 'view/home.view.php';
 } else {
     echo "Vista no encontrada";
 }
