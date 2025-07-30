@@ -19,9 +19,9 @@ if ($vista === 'login' && $accion === 'validar') {
     $registerController = new RegisterController();
     $registerController->mostrarFormulario();
 } elseif ($vista === 'home') {
-    include 'view/home.view.php';
-} else {
-    echo "Vista no encontrada";
+    require_once 'controller/home.controller.php';
+    $controller = new HomeController();
+    $controller->mostrarHome();
 }
 
 ?>
