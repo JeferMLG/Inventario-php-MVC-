@@ -12,6 +12,10 @@ if ($vista === 'login' && $accion === 'validar') {
     $auth->login();
 } elseif ($vista === 'login') {
     $auth->mostrarLogin();
+} elseif ($vista === 'logout') {
+    require_once 'controller/logout.controller.php';
+    $logout = new LogoutController();
+    $logout->cerrarSesion();
 } elseif ($vista === 'register' && $accion === 'registrar') {
     $registerController = new RegisterController();
     $registerController->procesarRegistro();

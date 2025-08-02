@@ -34,7 +34,7 @@
             </a>
         </li>
         <li>
-            <a href="logout.php">
+            <a href="../index.php?vista=logout">
                 <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
             </a>
         </li>
