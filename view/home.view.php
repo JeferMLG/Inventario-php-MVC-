@@ -17,7 +17,7 @@
                 <div class="actions">
                     <a href="nuevo_dispositivo.php" class="btn">Nuevo Dispositivo</a>
                     <a href="generar_reporte.php" class="btn">Generar Reporte</a>
-                    <a href="logout.php" class="btn">Salir</a>
+                    <a href="../index.php?vista=logout" class="btn">Salir</a>
                 </div>
             </header>
 
