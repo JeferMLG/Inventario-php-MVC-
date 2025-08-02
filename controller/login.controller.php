@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../model/login.model.php';
+require_once __DIR__ . '/../config/sesion.php';
 
 class AuthController {
     public function mostrarLogin() {
@@ -15,7 +16,7 @@ class AuthController {
             $result = $loginModel->verificarCredenciales($username, $password);
 
             if ($result) {
-                session_start();
+                $_SESSION['usuario_id'] = $result['id'];
                 $_SESSION['usuario'] = $result['nombre'];
                 header("Location: index.php?vista=home"); // Redirigir a home
                 exit();
