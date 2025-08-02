@@ -14,7 +14,7 @@
             </a>
         </li>
         <li>
-            <a href="inventario.php">
+            <a href="index.php?vista=inventario">
                 <i class="fas fa-boxes"></i> Inventario
             </a>
         </li>
