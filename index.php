@@ -52,6 +52,17 @@ if ($vista === 'login' && $accion === 'validar') {
         $inventarioController->mostrarInventario();                // Muestra lista inventario
     }
 
+// NUEVO DISPOSITIVO
+} elseif ($vista === 'nuevo_dispositivo') {
+    require_once 'controller/nuevo_dispositivo.controller.php';
+    $controller = new NuevoDispositivoController();
+
+    if ($accion === 'guardar') {
+        $controller->procesarFormulario();  // Procesa el POST y guarda
+    } else {
+        $controller->mostrarFormulario();   // Muestra el formulario
+    }
+
 // ERROR SI NO EXISTE VISTA
 } else {
     echo "Vista no encontrada";
