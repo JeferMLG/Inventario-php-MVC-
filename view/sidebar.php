@@ -9,7 +9,7 @@
             </a>
         </li>
         <li>
-            <a href="home.php">
+            <a href="index.php?vista=home">
                 <i class="fas fa-home"></i> Dashboard
             </a>
         </li>

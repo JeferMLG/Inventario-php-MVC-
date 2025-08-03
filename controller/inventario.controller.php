@@ -1,22 +1,23 @@
 <?php
 
-require_once __DIR__ . '/../config/sesion.php';
+require_once __DIR__  . '/../config/sesion.php';
 require_once __DIR__ . '/../model/inventario.model.php';
 
-class InventarioController {
+class inventarioController {
+
     private $model;
 
     public function __construct() {
-        $this->model = new InventarioModel();
+        $this->model = new inventarioModel();
     }
 
     /**
-     * Mostrar lista de equipos
+     * Mostrar la vista principal del inventario
      */
     public function mostrarInventario() {
         $equipos = $this->model->obtenerEquipos();
 
-        // Calcular precio total
+        // Calcular el precio total
         $totalPrecio = 0;
         foreach ($equipos as $equipo) {
             $totalPrecio += $equipo['precio'] * $equipo['cantidad'];
@@ -26,21 +27,33 @@ class InventarioController {
     }
 
     /**
+     * Eliminar un equipo
+     */
+    public function eliminarEquipo($id) {
+        $resultado = $this->model->eliminarEquipo($id);
+        if ($resultado) {
+            header("Location: index.php?vista=inventario");
+        } else {
+            echo "Error al eliminar el equipo.";
+        }
+    }
+
+    /**
      * Mostrar formulario de edición
      */
     public function mostrarEditarEquipo($id) {
         $equipo = $this->model->obtenerEquipoPorId($id);
-
         if (!$equipo) {
-            echo "Equipo no encontrado.";
+            echo "Equipo no encontrado";
             return;
         }
 
+        // Aquí podrías traer también los estados si los usas en el <select>
         include __DIR__ . '/../view/edit_device.view.php';
     }
 
     /**
-     * Actualizar datos del equipo
+     * Guardar cambios de edición
      */
     public function actualizarEquipo() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -51,25 +64,11 @@ class InventarioController {
             $precio = $_POST['precio'];
 
             $resultado = $this->model->editarEquipo($id, $nombre, $descripcion, $cantidad, $precio);
-
             if ($resultado) {
                 header("Location: index.php?vista=inventario");
             } else {
                 echo "Error al actualizar el equipo.";
             }
-        }
-    }
-
-    /**
-     * Eliminar equipo
-     */
-    public function eliminarEquipo($id) {
-        $resultado = $this->model->eliminarEquipo($id);
-
-        if ($resultado) {
-            header("Location: index.php?vista=inventario");
-        } else {
-            echo "Error al eliminar el equipo.";
         }
     }
 }
