@@ -77,5 +77,21 @@ class InventarioModel {
         $stmt = $this->conn->prepare($sql);
         return $stmt->execute([$nombre, $descripcion, $cantidad, $precio, $id]);
     }
+
+    public function mostrarMantenimientos() {
+
+        $sql = "SELECT m.id, e.nombre AS dispositivo, 
+            m.ultimo_mantenimiento,
+            m.proximo_mantenimiento,
+            t.nombre AS tipo_mantenimiento
+        FROM mantenimientos m
+        JOIN equipos e ON m.equipo_id = e.id
+        JOIN tipos_mantenimiento t ON m.tipo_mantenimiento_id = t.id";
+
+
+        $stmt = $this->conn->query($sql);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    }
 }
 

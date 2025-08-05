@@ -25,6 +25,10 @@ class inventarioController {
 
         include __DIR__ . '/../view/inventario.view.php';
     }
+     public function mostrarMantenimientos() {
+        $mantenimientos = $this->model->mostrarMantenimientos();
+        include __DIR__ . '/../view/mantenimiento.view.php';
+    }
 
     /**
      * Eliminar un equipo
