@@ -19,7 +19,7 @@
             </a>
         </li>
         <li>
-            <a href="mantenimiento.php">
+            <a href="index.php?vista=mantenimiento">
                 <i class="fas fa-tools"></i> Mantenimiento
             </a>
         </li>

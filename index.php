@@ -63,6 +63,17 @@ if ($vista === 'login' && $accion === 'validar') {
         $controller->mostrarFormulario();   // Muestra el formulario
     }
 
+
+} elseif ($vista === 'mantenimiento') {
+    require_once 'controller/inventario.controller.php';
+    $controller = new inventarioController();
+
+    if ($accion === 'crear') {
+        $controller->crearMantenimiento();
+    } else {
+        $controller->mostrarMantenimientos();
+    }
+
 // ERROR SI NO EXISTE VISTA
 } else {
     echo "Vista no encontrada";

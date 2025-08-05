@@ -93,5 +93,24 @@ class InventarioModel {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     }
+    public function crearMantenimiento($equipo_id, $tipo_mantenimiento_id, $fecha_mantenimiento, $descripcion, $tecnico_id, $estado_id, $ultimo_mantenimiento, $proximo_mantenimiento) {
+        $sql = "INSERT INTO mantenimientos 
+                (equipo_id, tipo_mantenimiento_id, fecha_mantenimiento, descripcion, tecnico_id, estado_id, ultimo_mantenimiento, proximo_mantenimiento)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $this->conn->prepare($sql);
+
+        if (!$stmt) return false;
+
+        return $stmt->execute([
+            $equipo_id,
+            $tipo_mantenimiento_id,
+            $fecha_mantenimiento,
+            $descripcion,
+            $tecnico_id,
+            $estado_id,
+            $ultimo_mantenimiento,
+            $proximo_mantenimiento
+        ]);
+    }
 }
 

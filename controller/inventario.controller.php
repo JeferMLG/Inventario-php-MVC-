@@ -75,4 +75,29 @@ class inventarioController {
             }
         }
     }
+    public function crearMantenimiento() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $equipo_id = $_POST['equipo_id'];
+            $tipo_mantenimiento_id = $_POST['tipo_mantenimiento_id'];
+            $fecha_mantenimiento = $_POST['fecha_mantenimiento'];
+            $descripcion = $_POST['descripcion'];
+            $tecnico_id = $_POST['tecnico_id'];
+            $estado_id = $_POST['estado_id'];
+            $ultimo_mantenimiento = $_POST['ultimo_mantenimiento'];
+            $proximo_mantenimiento = $_POST['proximo_mantenimiento'];
+
+            $this->model->crearMantenimiento(
+                $equipo_id,
+                $tipo_mantenimiento_id,
+                $fecha_mantenimiento,
+                $descripcion,
+                $tecnico_id,
+                $estado_id,
+                $ultimo_mantenimiento,
+                $proximo_mantenimiento
+            );
+
+            header("Location: index.php?vista=mantenimiento");
+        }
+    }
 }
