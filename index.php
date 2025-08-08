@@ -63,7 +63,7 @@ if ($vista === 'login' && $accion === 'validar') {
         $controller->mostrarFormulario();   // Muestra el formulario
     }
 
-
+//Mantenimiento
 } elseif ($vista === 'mantenimiento') {
     require_once 'controller/inventario.controller.php';
     $controller = new inventarioController();

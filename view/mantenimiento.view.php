@@ -23,6 +23,7 @@
                             <th>Último Mantenimiento</th>
                             <th>Próximo Mantenimiento</th>
                             <th>Tipo de Mantenimiento</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,11 +34,28 @@
                                     <td><?= htmlspecialchars($row['ultimo_mantenimiento']) ?></td>
                                     <td><?= htmlspecialchars($row['proximo_mantenimiento']) ?></td>
                                     <td><?= htmlspecialchars($row['tipo_mantenimiento']) ?></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <!-- Botón Editar -->
+                                            <a href="index.php?vista=inventario&accion=editar&id=<?= $row['id'] ?>" 
+                                            class="edit-btn" title="Editar">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+
+                                            <!-- Botón Eliminar -->
+                                            <a href="index.php?vista=inventario&accion=eliminar&id=<?= $row['id'] ?>" 
+                                            class="delete-btn" title="Eliminar" 
+                                            onclick="return confirm('¿Está seguro de que desea eliminar este dispositivo?');">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </div>
+                                    </td>
                                 </tr>
                             <?php endforeach; ?>
                         <?php else: ?>
-                            <tr><td colspan="4">No hay mantenimientos registrados</td></tr>
+                            <tr><td colspan="5">No hay mantenimientos registrados</td></tr>
                         <?php endif; ?>
+                        
                     </tbody>
                 </table>
             </div>
