@@ -65,7 +65,7 @@ if ($vista === 'login' && $accion === 'validar') {
 
 //Mantenimiento
 } elseif ($vista === 'mantenimiento') {
-    require_once 'controller/inventario.controller.php';
+    require_once 'controller/mantenimiento.controller.php';
     $controller = new inventarioController();
 
     if ($accion === 'crear') {
