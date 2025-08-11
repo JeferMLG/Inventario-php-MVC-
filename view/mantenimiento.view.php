@@ -25,6 +25,8 @@
                             <th>Último Mantenimiento</th>
                             <th>Próximo Mantenimiento</th>
                             <th>Tipo de Mantenimiento</th>
+                            <th>Técnico</th>
+                            <th>Descripción</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -36,10 +38,12 @@
                                     <td><?= htmlspecialchars($row['ultimo_mantenimiento']) ?></td>
                                     <td><?= htmlspecialchars($row['proximo_mantenimiento']) ?></td>
                                     <td><?= htmlspecialchars($row['tipo_mantenimiento']) ?></td>
+                                    <td><?= htmlspecialchars($row['tecnico']) ?></td>
+                                    <td><?= htmlspecialchars($row['descripcion']) ?></td>
                                     <td>
                                         <div class="action-buttons">
                                             <!-- Botón Editar -->
-                                            <a href="index.php?vista=inventario&accion=editar&id=<?= $row['id'] ?>" 
+                                            <a href="index.php?vista=inventario&accion=actualizar&id=<?= $row['id'] ?>" 
                                             class="edit-btn" title="Editar">
                                                 <i class="fas fa-edit"></i>
                                             </a>

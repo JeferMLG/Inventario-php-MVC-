@@ -9,21 +9,23 @@ class mantenimientoModel {
         $this->conn = BaseDatos::Conectar();
     }
 
-    //Mnatenimiento
+    //Mantenimiento
     public function mostrarMantenimientos() {
-
-        $sql = "SELECT m.id, e.nombre AS dispositivo, 
-            m.ultimo_mantenimiento,
-            m.proximo_mantenimiento,
-            t.nombre AS tipo_mantenimiento
-        FROM mantenimientos m
-        JOIN equipos e ON m.equipo_id = e.id
-        JOIN tipos_mantenimiento t ON m.tipo_mantenimiento_id = t.id";
-
+        $sql = "SELECT 
+                    m.id, 
+                    e.nombre AS dispositivo, 
+                    m.ultimo_mantenimiento,
+                    m.proximo_mantenimiento,
+                    t.nombre AS tipo_mantenimiento,
+                    m.descripcion,
+                    te.nombre AS tecnico
+                FROM mantenimientos m
+                JOIN equipos e ON m.equipo_id = e.id
+                JOIN tipos_mantenimiento t ON m.tipo_mantenimiento_id = t.id
+                JOIN tecnicos te ON m.tecnico_id = te.id";
 
         $stmt = $this->conn->query($sql);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-
     }
 // Obtener datos para los selects
     public function obtenerDatosMantenimiento() {
@@ -54,6 +56,31 @@ class mantenimientoModel {
             ':proximo_mantenimiento' => $data['proximo_mantenimiento']
         ]);
     }
+
+    //Actualizar mantenimiento
+    public function actualizarMantenimiento($id, $data) {
+    $sql = "UPDATE mantenimientos 
+            SET equipo_id = :equipo_id,
+                tipo_mantenimiento_id = :tipo_mantenimiento_id,
+                descripcion = :descripcion,
+                tecnico_id = :tecnico_id,
+                estado_id = :estado_id,
+                ultimo_mantenimiento = :ultimo_mantenimiento,
+                proximo_mantenimiento = :proximo_mantenimiento
+            WHERE id = :id";
+
+    $stmt = $this->conn->prepare($sql);
+    return $stmt->execute([
+        ':equipo_id' => $data['equipo_id'],
+        ':tipo_mantenimiento_id' => $data['tipo_mantenimiento_id'],
+        ':descripcion' => $data['descripcion'],
+        ':tecnico_id' => $data['tecnico_id'],
+        ':estado_id' => $data['estado_id'],
+        ':ultimo_mantenimiento' => $data['ultimo_mantenimiento'],
+        ':proximo_mantenimiento' => $data['proximo_mantenimiento'],
+        ':id' => $id
+    ]);
+}
 
     public function eliminarMantenimiento($id) {
         try {
