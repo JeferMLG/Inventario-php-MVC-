@@ -66,14 +66,14 @@ if ($vista === 'login' && $accion === 'validar') {
 //Mantenimiento
 } elseif ($vista === 'mantenimiento') {
     require_once 'controller/mantenimiento.controller.php';
-    $controller = new mantenimientoController();
+    $controller = new MantenimientoController();
 
     if ($accion === 'crear') {
         $controller->crearMantenimiento();
-    }elseif ($accion === 'actualizar') {
+    } elseif ($accion === 'actualizar') {
         $controller->actualizarMostrar();
-
-
+    } elseif ($accion === 'eliminar') {
+        $controller->eliminarMantenimiento();
     } else {
         $controller->mostrarMantenimientos();
     }

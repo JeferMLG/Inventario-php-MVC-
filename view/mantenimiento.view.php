@@ -49,9 +49,10 @@
                                             </a>
 
                                             <!-- Botón Eliminar -->
-                                            <a href="index.php?vista=inventario&accion=eliminar&id=<?= $row['id'] ?>" 
-                                            class="delete-btn" title="Eliminar" 
-                                            onclick="return confirm('¿Está seguro de que desea eliminar este dispositivo?');">
+                                            <a href="index.php?vista=mantenimiento&accion=eliminar&id=<?= $row['id'] ?>" 
+                                            class="delete-btn" 
+                                            title="Eliminar" 
+                                            onclick="return confirm('¿Está seguro de que desea eliminar este mantenimiento?');">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>

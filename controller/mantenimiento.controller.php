@@ -5,11 +5,12 @@ require_once __DIR__ . '/../model/mantenimiento.model.php';
 
 class mantenimientoController {
     private $model;
+
     public function __construct() {
         $this->model = new MantenimientoModel();
     }
     
-        public function crearMantenimiento() {
+    public function crearMantenimiento() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = [
                 'equipo_id' => $_POST['equipo_id'],
@@ -38,12 +39,8 @@ class mantenimientoController {
             include __DIR__ . '/../view/crear_mantenimiento.view.php';
         }
     }
-    public function mostrarMantenimientos() {
-        $mantenimientos = $this->model->mostrarMantenimientos();
-        include __DIR__ . '/../view/mantenimiento.view.php';
-    }    
 
-        public function actualizarMostrar() {
+    public function actualizarMostrar() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $_POST['id'];
             $data = [
@@ -65,7 +62,21 @@ class mantenimientoController {
         }
     }
 
+    public function mostrarMantenimientos() {
+        $mantenimientos = $this->model->obtenerMantenimientos();
+        require __DIR__ . '/../view/mantenimiento.view.php';
+    }
 
+    public function eliminarMantenimiento() {
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
 
+            if ($this->model->eliminarMantenimiento($id)) {
+                header("Location: index.php?vista=mantenimiento&mensaje=eliminado");
+                exit;
+            } else {
+                echo "Error al eliminar el mantenimiento.";
+            }
+        }
+    }
 }
-    

@@ -80,14 +80,47 @@ class mantenimientoModel {
         ':proximo_mantenimiento' => $data['proximo_mantenimiento'],
         ':id' => $id
     ]);
-}
+    }
 
     public function eliminarMantenimiento($id) {
         try {
+            $this->conn->beginTransaction();
+
+            // Aquí podrías eliminar registros relacionados si tienes tablas dependientes
+            // Ejemplo: eliminar repuestos usados, historial, etc.
+            // $stmt = $this->conn->prepare("DELETE FROM repuestos_mantenimiento WHERE mantenimiento_id = ?");
+            // $stmt->execute([$id]);
+
+            // Eliminar el mantenimiento
             $stmt = $this->conn->prepare("DELETE FROM mantenimientos WHERE id = ?");
-            return $stmt->execute([$id]);
+            $stmt->execute([$id]);
+
+            $this->conn->commit();
+            return true;
         } catch (Exception $e) {
+            $this->conn->rollBack();
             return false;
         }
     }
+
+        public function obtenerMantenimientos() {
+            $sql = "SELECT 
+                        m.id,
+                        e.nombre AS dispositivo,
+                        tm.nombre AS tipo_mantenimiento,
+                        m.fecha_mantenimiento,
+                        m.descripcion,
+                        CONCAT(t.nombre, ' ', t.apellido) AS tecnico,
+                        ee.nombre AS estado,
+                        m.ultimo_mantenimiento,
+                        m.proximo_mantenimiento
+                    FROM mantenimientos m
+                    INNER JOIN equipos e ON m.equipo_id = e.id
+                    INNER JOIN tipos_mantenimiento tm ON m.tipo_mantenimiento_id = tm.id
+                    INNER JOIN tecnicos t ON m.tecnico_id = t.id
+                    INNER JOIN estados_equipos ee ON m.estado_id = ee.id
+                    ORDER BY m.id DESC";
+            $stmt = $this->conn->query($sql);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
 }
