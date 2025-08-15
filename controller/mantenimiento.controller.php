@@ -79,4 +79,21 @@ class mantenimientoController {
             }
         }
     }
+
+    public function mostrarEditarMantenimiento($id) {
+        $mantenimiento = $this->model->obtenerMantenimientoPorId($id);
+        if (!$mantenimiento) {
+            echo "Mantenimiento no encontrado";
+            return;
+        }
+
+        $datos = $this->model->obtenerDatosMantenimiento();
+        $equipos = $datos['equipos'];
+        $tipos_mantenimiento = $datos['tipos_mantenimiento'];
+        $tecnicos = $datos['tecnicos'];
+        $estados = $datos['estados'];
+
+        // Aquí podrías traer también los estados si los usas en el <select>
+        include __DIR__ . '/../view/actualizar_mantenimiento.view.php';
+    }
 }

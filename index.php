@@ -71,7 +71,7 @@ if ($vista === 'login' && $accion === 'validar') {
     if ($accion === 'crear') {
         $controller->crearMantenimiento();
     } elseif ($accion === 'actualizar') {
-        $controller->actualizarMostrar();
+        $controller->mostrarEditarMantenimiento($_GET['id']);
     } elseif ($accion === 'eliminar') {
         $controller->eliminarMantenimiento();
     } else {
