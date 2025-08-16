@@ -103,26 +103,25 @@ class mantenimientoModel {
         }
     }
 
-        public function obtenerMantenimientos() {
-            $sql = "SELECT 
-                        m.id,
-                        e.nombre AS dispositivo,
-                        tm.nombre AS tipo_mantenimiento,
-                        m.fecha_mantenimiento,
-                        m.descripcion,
-                        CONCAT(t.nombre, ' ', t.apellido) AS tecnico,
-                        ee.nombre AS estado,
-                        m.ultimo_mantenimiento,
-                        m.proximo_mantenimiento
-                    FROM mantenimientos m
-                    INNER JOIN equipos e ON m.equipo_id = e.id
-                    INNER JOIN tipos_mantenimiento tm ON m.tipo_mantenimiento_id = tm.id
-                    INNER JOIN tecnicos t ON m.tecnico_id = t.id
-                    INNER JOIN estados_equipos ee ON m.estado_id = ee.id
-                    ORDER BY m.id DESC";
-            $stmt = $this->conn->query($sql);
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        }
+    public function obtenerMantenimientos() {
+        $sql = "SELECT 
+                    m.id,
+                    e.nombre AS dispositivo,
+                    tm.nombre AS tipo_mantenimiento,
+                    m.ultimo_mantenimiento,
+                    m.proximo_mantenimiento,
+                    m.descripcion,
+                    t.nombre AS tecnico,
+                    ee.nombre AS estado
+                FROM mantenimientos m
+                INNER JOIN equipos e ON m.equipo_id = e.id
+                INNER JOIN tipos_mantenimiento tm ON m.tipo_mantenimiento_id = tm.id
+                INNER JOIN tecnicos t ON m.tecnico_id = t.id
+                INNER JOIN estados_equipos ee ON m.estado_id = ee.id
+                ORDER BY m.id DESC";
+        $stmt = $this->conn->query($sql);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
         public function obtenerMantenimientoPorId($id) {
             $sql = "SELECT * FROM mantenimientos WHERE id = ?";

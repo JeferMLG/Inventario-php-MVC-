@@ -11,7 +11,7 @@ class MantenimientoController {
     }
 
     // Método unificado para crear o actualizar
-    public function guardarMantenimiento() {
+    public function guardarMantenimiento() {    
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = isset($_POST['id']) && !empty($_POST['id']) ? $_POST['id'] : null;
 
@@ -21,7 +21,7 @@ class MantenimientoController {
                 'descripcion' => $_POST['descripcion'],
                 'tecnico_id' => $_POST['tecnico_id'],
                 'estado_id' => $_POST['estado_id'],
-                'ultimo_mantenimiento' => $_POST['ultimo_mantenimiento'],
+                'ultimo_mantenimiento' => $_POST['fecha_mantenimiento'],
                 'proximo_mantenimiento' => $_POST['proximo_mantenimiento']
             ];
 
