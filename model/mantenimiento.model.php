@@ -123,4 +123,11 @@ class mantenimientoModel {
             $stmt = $this->conn->query($sql);
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
+
+        public function obtenerMantenimientoPorId($id) {
+            $sql = "SELECT * FROM mantenimientos WHERE id = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }

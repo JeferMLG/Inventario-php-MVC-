@@ -1,48 +1,20 @@
 <?php
 
-require_once __DIR__  . '/../config/sesion.php';
+require_once __DIR__ . '/../config/sesion.php';
 require_once __DIR__ . '/../model/mantenimiento.model.php';
 
-class mantenimientoController {
+class MantenimientoController {
     private $model;
 
     public function __construct() {
-        $this->model = new MantenimientoModel();
-    }
-    
-    public function crearMantenimiento() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $data = [
-                'equipo_id' => $_POST['equipo_id'],
-                'tipo_mantenimiento_id' => $_POST['tipo_mantenimiento_id'],
-                'descripcion' => $_POST['descripcion'],
-                'tecnico_id' => $_POST['tecnico_id'],
-                'estado_id' => $_POST['estado_id'],
-                'ultimo_mantenimiento' => $_POST['fecha_mantenimiento'],
-                'proximo_mantenimiento' => $_POST['proximo_mantenimiento']
-            ];
-
-            if ($this->model->crearMantenimiento($data)) {
-                header("Location: index.php?vista=mantenimiento");
-                exit();
-            } else {
-                echo "Error al crear mantenimiento";
-            }
-        } else {
-            // Cargar datos para selects
-            $datos = $this->model->obtenerDatosMantenimiento();
-            $equipos = $datos['equipos'];
-            $tipos_mantenimiento = $datos['tipos_mantenimiento'];
-            $tecnicos = $datos['tecnicos'];
-            $estados = $datos['estados'];
-
-            include __DIR__ . '/../view/crear_mantenimiento.view.php';
-        }
+        $this->model = new mantenimientoModel();
     }
 
-    public function actualizarMostrar() {
+    // Método unificado para crear o actualizar
+    public function guardarMantenimiento() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $id = $_POST['id'];
+            $id = isset($_POST['id']) && !empty($_POST['id']) ? $_POST['id'] : null;
+
             $data = [
                 'equipo_id' => $_POST['equipo_id'],
                 'tipo_mantenimiento_id' => $_POST['tipo_mantenimiento_id'],
@@ -53,12 +25,57 @@ class mantenimientoController {
                 'proximo_mantenimiento' => $_POST['proximo_mantenimiento']
             ];
 
-            if ($this->model->actualizarMantenimiento($id, $data)) {
-                header("Location: index.php?vista=mantenimientos&mensaje=actualizado");
-                exit;
+            if ($id) {
+                // Actualizar
+                $ok = $this->model->actualizarMantenimiento($id, $data);
+                if ($ok) {
+                    header("Location: index.php?vista=mantenimiento&mensaje=actualizado");
+                    exit;
+                } else {
+                    // Si falla, recargar la vista de actualización
+                    $mantenimiento = $this->model->obtenerMantenimientoPorId($id);
+                    require 'view/actualizar_mantenimiento.view.php';
+                }
             } else {
-                echo "Error al actualizar el mantenimiento.";
+                // Crear
+                $ok = $this->model->crearMantenimiento($data);
+                if ($ok) {
+                    header("Location: index.php?vista=mantenimiento&mensaje=creado");
+                    exit;
+                } else {
+                    // Si falla, recargar la vista de creación
+                    require 'view/crear_mantenimiento.view.php';
+                }
             }
+        } else {
+            $this->mostrarFormulario();
+        }
+    }
+
+    // Mostrar formulario (para crear o editar)
+    public function mostrarFormulario($id = null, $modo = 'crear') {
+        $mantenimiento = null;
+
+        if ($modo === 'actualizar' && $id) {
+            $mantenimiento = $this->model->obtenerMantenimientoPorId($id);
+            if (!$mantenimiento) {
+                echo "Mantenimiento no encontrado";
+                return;
+            }
+        }
+
+        // Obtener datos comunes (equipos, técnicos, etc.)
+        $datos = $this->model->obtenerDatosMantenimiento();
+        $equipos = $datos['equipos'];
+        $tipos_mantenimiento = $datos['tipos_mantenimiento'];
+        $tecnicos = $datos['tecnicos'];
+        $estados = $datos['estados'];
+
+        // Cargar la vista correspondiente
+        if ($modo === 'actualizar') {
+            include __DIR__ . '/../view/actualizar_mantenimiento.view.php';
+        } else {
+            include __DIR__ . '/../view/crear_mantenimiento.view.php';
         }
     }
 
@@ -78,22 +95,5 @@ class mantenimientoController {
                 echo "Error al eliminar el mantenimiento.";
             }
         }
-    }
-
-    public function mostrarEditarMantenimiento($id) {
-        $mantenimiento = $this->model->obtenerMantenimientoPorId($id);
-        if (!$mantenimiento) {
-            echo "Mantenimiento no encontrado";
-            return;
-        }
-
-        $datos = $this->model->obtenerDatosMantenimiento();
-        $equipos = $datos['equipos'];
-        $tipos_mantenimiento = $datos['tipos_mantenimiento'];
-        $tecnicos = $datos['tecnicos'];
-        $estados = $datos['estados'];
-
-        // Aquí podrías traer también los estados si los usas en el <select>
-        include __DIR__ . '/../view/actualizar_mantenimiento.view.php';
     }
 }

@@ -7,14 +7,15 @@
     <link rel="stylesheet" href="../view/css/actualizar_mantenimiento.css">
 </head>
 <body>
-    <form method="POST" action="">
+    <form method="POST" action="index.php?vista=mantenimiento&accion=actualizar&id=<?= $mantenimiento['id'] ?>">
+
         <h1>Actualizar Mantenimiento</h1>
 
         <!-- Campo oculto con el ID del mantenimiento -->
         <input type="hidden" name="id" value="<?= htmlspecialchars($mantenimiento['id']) ?>">
 
         <label for="equipo_id">Equipo:</label>
-        <select name="equipo_id" id="equipo_id" required>
+        <select name="equipo_id" id="equipo_id" disabled>
             <option value="">Seleccione un equipo</option>
             <?php foreach ($equipos as $equipo): ?>
                 <option value="<?= htmlspecialchars($equipo['id']) ?>"

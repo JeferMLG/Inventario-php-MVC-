@@ -17,7 +17,7 @@
             </header>
 
             <div class="content">
-                <a href="index.php?vista=mantenimiento&accion=crear" class="btn">Crear Mantenimiento</a>
+                <a href="index.php?vista=mantenimiento&accion=nuevo" class="btn">Crear Mantenimiento</a>
                 <table class="doc-table">
                     <thead>
                         <tr>
@@ -43,7 +43,7 @@
                                     <td>
                                         <div class="action-buttons">
                                             <!-- Botón Editar -->
-                                            <a href="index.php?vista=inventario&accion=actualizar&id=<?= $row['id'] ?>" 
+                                            <a href="index.php?vista=mantenimiento&accion=actualizar&id=<?= $row['id'] ?>" 
                                             class="edit-btn" title="Editar">
                                                 <i class="fas fa-edit"></i>
                                             </a>

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../view/css/crear_mantenimiento.css">
 </head>
 <body>
-    <form method="POST" action="">
+    <form method="POST" action="index.php?vista=mantenimiento&accion=guardar">
         <h1>Crear Mantenimiento</h1>
 
         <label for="equipo_id">Equipo:</label>

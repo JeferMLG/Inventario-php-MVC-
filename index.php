@@ -68,10 +68,17 @@ if ($vista === 'login' && $accion === 'validar') {
     require_once 'controller/mantenimiento.controller.php';
     $controller = new MantenimientoController();
 
-    if ($accion === 'crear') {
-        $controller->crearMantenimiento();
+    if ($accion === 'guardar') {
+        $controller->guardarMantenimiento();
     } elseif ($accion === 'actualizar') {
-        $controller->mostrarEditarMantenimiento($_GET['id']);
+        $id = $_GET['id'] ?? null;
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $controller->guardarMantenimiento();
+        } else {
+            $controller->mostrarFormulario($id, 'actualizar'); // Muestra el form de actualización
+        }
+    } elseif ($accion === 'nuevo') {
+        $controller->mostrarFormulario(null, 'crear'); // Muestra el form de creación
     } elseif ($accion === 'eliminar') {
         $controller->eliminarMantenimiento();
     } else {
