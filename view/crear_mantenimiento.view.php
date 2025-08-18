@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Mantenimiento</title>
-    <link rel="stylesheet" href="../view/css/crear_mantenimiento.css">
+    <link rel="stylesheet" href="../view/Css/crear_mantenimiento.css">
 </head>
 <body>
     <form method="POST" action="index.php?vista=mantenimiento&accion=guardar">

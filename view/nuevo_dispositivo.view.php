@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Añadir Nuevo Dispositivo</title>
-    <link rel="stylesheet" href="../view/css/nuevo_dispositivo.css">
+    <link rel="stylesheet" href="../view/Css/nuevo_dispositivo.css">
 </head>
 <body>
     <div class="overlay"></div>

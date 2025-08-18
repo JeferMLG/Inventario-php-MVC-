@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualizar Mantenimiento</title>
-    <link rel="stylesheet" href="../view/css/actualizar_mantenimiento.css">
+    <link rel="stylesheet" href="../view/Css/actualizar_mantenimiento.css">
 </head>
 <body>
     <form method="POST" action="index.php?vista=mantenimiento&accion=actualizar&id=<?= $mantenimiento['id'] ?>">
