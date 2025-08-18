@@ -84,6 +84,10 @@ if ($vista === 'login' && $accion === 'validar') {
     } else {
         $controller->mostrarMantenimientos();
     }
+} elseif ($vista === 'reportes') {
+    require_once 'controller/reportes.controller.php';
+    $reportesController = new reportesController();
+    $reportesController->mostrarReportes();
 
 // ERROR SI NO EXISTE VISTA
 } else {

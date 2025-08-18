@@ -24,7 +24,7 @@
             </a>
         </li>
         <li>
-            <a href="generar_reporte.php">
+            <a href="index.php?vista=reportes">
                 <i class="fas fa-chart-line"></i> Reportes
             </a>
         </li>
