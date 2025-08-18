@@ -29,7 +29,7 @@
             </a>
         </li>
         <li>
-            <a href="configuracion.php">
+            <a href="index.php?vista=informacion">
                 <i class="fas fa-cog"></i> Informacion
             </a>
         </li>

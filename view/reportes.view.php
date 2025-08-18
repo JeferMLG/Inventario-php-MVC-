@@ -16,7 +16,7 @@
             
         <form method="GET" action="index.php">
             <input type="hidden" name="vista" value="reportes">
-            <input type="text" name="busqueda" placeholder="Buscar por nombre" value="<?= htmlspecialchars($_GET['busqueda'] ?? '') ?>">
+            <input type="text" name="busqueda" placeholder="Buscar Dispositivos por nombre" value="<?= htmlspecialchars($_GET['busqueda'] ?? '') ?>">
             <button type="submit">Buscar</button>
         </form>
                 <table>
@@ -34,32 +34,32 @@
                             <th>Fecha de Compra</th> 
                         </tr>
                     </thead>
-                    <tbody>
-                        <?php
-                        if ($result->num_rows > 0) {
-                            while($row = $result->fetch_assoc()) {
-                                echo "<tr>
-                                        <td>" . htmlspecialchars($row['nombre']) . "</td>
-                                        <td>" . htmlspecialchars($row['descripcion']) . "</td>
-                                        <td>" . htmlspecialchars($row['cantidad']) . "</td>
-                                        <td>" . number_format($row['precio'], 2) . "</td>
-                                        <td>" . number_format($row['precio_total'], 2) . "</td> <!-- Mostrar precio total -->
-                                        <td>" . htmlspecialchars($row['proveedor']) . "</td>
-                                        <td>" . htmlspecialchars($row['categoria']) . "</td>
-                                        <td>" . htmlspecialchars($row['marca']) . "</td>
-                                        <td>" . htmlspecialchars($row['estado']) . "</td> <!-- Mostrar estado -->
-                                        <td>" . htmlspecialchars($row['fecha_compra']) . "</td> <!-- Mostrar fecha de compra -->
-                                        </tr>";
-                            }
-                        } else {
-                            echo "<tr><td colspan='10'>No hay dispositivos registrados</td></tr>"; 
-                        }
-                        ?>
-                    </tbody>
+                        <tbody>
+                            <?php if (!empty($reportes)): ?>
+                                <?php foreach ($reportes as $r): ?>
+                                    <tr>
+                                        <td><?= htmlspecialchars($r['nombre']) ?></td>
+                                        <td><?= htmlspecialchars($r['descripcion']) ?></td>
+                                        <td><?= htmlspecialchars($r['cantidad']) ?></td>
+                                        <td><?= htmlspecialchars($r['precio']) ?></td>
+                                        <td><?= htmlspecialchars($r['precio_total']) ?></td>
+                                        <td><?= htmlspecialchars($r['proveedor']) ?></td>
+                                        <td><?= htmlspecialchars($r['categoria']) ?></td>
+                                        <td><?= htmlspecialchars($r['marca']) ?></td>
+                                        <td><?= htmlspecialchars($r['estado']) ?></td>
+                                        <td><?= htmlspecialchars($r['fecha_compra']) ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <tr>
+                                    <td colspan="10">No se encontraron resultados.</td>
+                                </tr>
+                            <?php endif; ?>
+                        </tbody>
                 </table>
 
-            
-            <button type="button" class="btn" onclick="window.location.href='home.php';">Regresar al Home</button>
+
+            <button type="button" class="btn" onclick="window.location.href='index.php?vista=home'">Regresar al Home</button>
         </div>
     </body>
 </html>
