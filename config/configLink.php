@@ -8,8 +8,8 @@ if ($_SERVER['HTTP_HOST'] === 'localhost') {
     define("DB_PASS", "");
 } else {
     // 🔹 Configuración PRODUCCIÓN (Hosting page.gd)
-    define("DB_HOST", "ql201.infinityfree.com"); // <- pon el host de MySQL real
-    define("DB_NAME", "if0_39730339_XXX");     // <- pon el nombre real de la BD
+    define("DB_HOST", "sql201.infinityfree.com"); // <- pon el host de MySQL real
+    define("DB_NAME", "if0_39730339_empresa_inventario");     // <- pon el nombre real de la BD
     define("DB_USER", "if0_39730339");           // <- pon el usuario real
     define("DB_PASS", "znJ1uhNOryf");         // <- pon la contraseña real
 }
