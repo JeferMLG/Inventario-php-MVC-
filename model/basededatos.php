@@ -1,15 +1,12 @@
 <?php
-class BaseDatos {
-    public static function Conectar(){
-        try {
-            // Cargar la configuración desde configLink.php
-            $config = require __DIR__ . '/../config/configLink.php';
+require_once __DIR__ . '/../config/configLink.php';
 
-            $conexion = new PDO(
-                "mysql:host={$config['host']};dbname={$config['dbname']};charset=utf8",
-                $config['username'],
-                $config['password']
-            );
+class BaseDatos {
+    public static function Conectar() {
+        try {
+            // Construir la conexión usando las constantes
+            $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8";
+            $conexion = new PDO($dsn, DB_USER, DB_PASS);
             $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $conexion;
         } catch (PDOException $e) {
@@ -18,4 +15,3 @@ class BaseDatos {
         }
     }
 }
-?>

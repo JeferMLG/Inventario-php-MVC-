@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Aulapp - Registro</title>
-    <link rel="stylesheet" href="../view/css/register.css">
+    <link rel="stylesheet" href="../view/Css/register.css">
 </head>
 <body>
     <div class="container">
