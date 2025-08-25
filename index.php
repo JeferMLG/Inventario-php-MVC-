@@ -94,14 +94,15 @@ if ($vista === 'login' && $accion === 'validar') {
 
 
 } elseif ($vista === 'perfil') {
-    require_once 'controller/perfil.controller.php';
-    $perfilController = new perfilController();
+    require_once 'view/perfil.view.php'
+    //require_once 'controller/perfil.controller.php';
+    //$perfilController = new perfilController();
 
-    if ($accion === 'actualizar_foto') {
-        $perfilController->actualizarFoto();
-    } else {
-        $perfilController->mostrarUsuario($_SESSION['user_id']);
-    }
+    //if ($accion === 'actualizar_foto') {
+      //  $perfilController->actualizarFoto();
+    //} else {
+      //  $perfilController->mostrarUsuario($_SESSION['user_id']);
+    //}
 
 // ERROR SI NO EXISTE VISTA
 } else {
