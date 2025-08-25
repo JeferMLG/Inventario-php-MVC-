@@ -92,9 +92,23 @@ if ($vista === 'login' && $accion === 'validar') {
     $reportesController = new reportesController();
     $reportesController->mostrarReportes();
 
+
+} elseif ($vista === 'perfil') {
+    require_once 'controller/perfil.controller.php';
+    $perfilController = new perfilController();
+
+    if ($accion === 'actualizar_foto') {
+        $perfilController->actualizarFoto();
+    } else {
+        $perfilController->mostrarUsuario($_SESSION['user_id']);
+    }
+
 // ERROR SI NO EXISTE VISTA
 } else {
     echo "Vista no encontrada";
 }
 
+
+
 ?>
+
