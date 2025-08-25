@@ -4,7 +4,7 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Generar Reporte</title>
-            <link rel="stylesheet" href="../view/css/reportes.css">
+            <link rel="stylesheet" href="../view/Css/reportes.css">
         </head>
     <body>
         
@@ -52,7 +52,7 @@
                                 <?php endforeach; ?>
                             <?php else: ?>
                                 <tr>
-                                    <td colspan="10">No se encontraron resultados.</td>
+                                    <td colspan="10">No se encontraron resultados..</td>
                                 </tr>
                             <?php endif; ?>
                         </tbody>

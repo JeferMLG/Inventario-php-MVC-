@@ -26,7 +26,7 @@
         <li>
             <a href="index.php?vista=reportes">
                 <i class="fas fa-chart-line"></i> Reportes
-            </a>
+            </a>    
         </li>
         <li>
             <a href="index.php?vista=informacion">
