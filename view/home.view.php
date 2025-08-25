@@ -16,7 +16,7 @@
                 <h1>Panel de Gestión</h1>
                 <div class="actions">
                     <a href="index.php?vista=nuevo_dispositivo" class="btn">Nuevo Dispositivo</a>
-                    <a href="generar_reporte.php" class="btn">Generar Reporte</a>
+                    <a href="index.php?vista=reportes" class="btn">Generar Reporte</a>
                     <a href="../index.php?vista=logout" class="btn">Salir</a>
                 </div>
             </header>
