@@ -14,8 +14,8 @@
             <header class="topbar">
                 <h1>Perfil de Usuario</h1>
                 <div class="actions">
-                    <a href="editar_perfil.php" class="btn">Editar Perfil</a> 
-                    <a href="logout.php" class="btn">Salir</a>
+                    <a href="index.php?vista=editar_perfil" class="btn">Editaaaaaaaaaaaaar Perfil</a> 
+                    <a href="../index.php?vista=logout" class="btn">Salir</a>
                 </div>
             </header>
 
