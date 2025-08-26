@@ -93,7 +93,15 @@ if ($vista === 'login' && $accion === 'validar') {
     $reportesController->mostrarReportes();
 
 }elseif ($vista === 'perfil') {
-    require_once 'view/perfil.view.php';
+    require_once 'controller/perfil.controller.php';
+    $perfilController = new perfilController();
+    if($accion ==="actualizar_foto"){
+        $perfilController->actualizarFoto();
+    }else {
+        // Usa el ID de la sesion importante para futuros proyectos
+        $id = $_SESSION['usuario_id'] ?? null;
+        $perfilController->mostrarUsuario($id);
+    }
 
 
 // ERROR SI NO EXISTE VISTA

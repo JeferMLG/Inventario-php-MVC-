@@ -12,21 +12,28 @@ class perfilController {
     }
 
 
-    public function mostrarUsuario($id){
-        $usuario = $this->model->obtenerUsuario($id);
+    public function mostrarUsuario($id = null){
+        // Usa el ID de la sesión si no se pasa por parámetro
+        if (!$id) {
+            $id = $_SESSION['usuario_id'] ?? null;
+        }
+        if (!$id) {
+            echo "ID de usuario no especificado.";
+            return;
+        }
+        $usuario = $this->model->obtenerIdUser($id); 
 
         if (!$usuario) {
             echo "Usuario no encontrado";
+            return;
         }
 
         include __DIR__ . '/../view/perfil.view.php';
 
     }
 
-
-
     public function actualizarFoto() {
-        $userId = $_SESSION['user_id']; // usuario logueado
+        $userId = $_SESSION['usuario_id']; // usuario logueado
 
         if (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK) {
             $nombreArchivo = time() . "_" . basename($_FILES['foto']['name']);
