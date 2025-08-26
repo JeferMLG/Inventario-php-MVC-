@@ -37,12 +37,13 @@
                     <?php 
                         // Si no hay foto, mostramos una imagen por defecto
                         $foto = !empty($usuario['foto_perfil']) 
-                            ? "uploads/" . htmlspecialchars($usuario['foto_perfil']) 
-                            : "uploads/default.png";
+                            ? "../uploads/" . htmlspecialchars($usuario['foto_perfil']) 
+                            : "../uploads/default.png";
                     ?>
                     <img src="<?php echo $foto; ?>" alt="Foto de Perfil" style="width:250px; height:auto; border-radius:10px;">
 
-                    <form action="index.php?vista=perfil&accion=actualizar_foto" method="post" enctype="multipart/form-data">
+                    <form action="../index.php?vista=perfil&accion=actualizar_foto" method="post" enctype="multipart/form-data">
+
                         <label for="foto" class="custom-file-upload">
                             <i class="fas fa-upload"></i> Seleccionar archivo
                         </label>
