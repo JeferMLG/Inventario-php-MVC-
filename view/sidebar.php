@@ -4,7 +4,7 @@
     </div>
     <ul>
         <li>
-            <a href="perfil.php">
+            <a href="index.php?vista=perfil">
                 <i class="fas fa-user"></i> Perfil
             </a>
         </li>
