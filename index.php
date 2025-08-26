@@ -92,6 +92,10 @@ if ($vista === 'login' && $accion === 'validar') {
     $reportesController = new reportesController();
     $reportesController->mostrarReportes();
 
+}elseif ($vista === 'perfil') {
+    require_once 'view/perfil.view.php';
+
+
 // ERROR SI NO EXISTE VISTA
 } else {
     echo "Vista no encontrada";
