@@ -1,6 +1,6 @@
 <?php 
 
-require_once __DIR__ . "/../model/perfil.model.php";
+require_once __DIR__ . "/../model/perfiluser.model.php";
 require_once __DIR__ . '/../config/sesion.php';
 
 
@@ -8,7 +8,7 @@ class perfilController {
     private $model; 
 
     public function __construct() {
-        $this->model = new PerfilModel();
+        $this->model = new perfilModel();
     }
 
 
@@ -28,7 +28,7 @@ class perfilController {
             return;
         }
 
-        include __DIR__ . '/../view/perfil.view.php';
+        include __DIR__ . '/../view/perfiluser.view.php';
 
     }
 
@@ -58,6 +58,7 @@ class perfilController {
         }
     }
 }
+
 
 
 

@@ -93,7 +93,7 @@ if ($vista === 'login' && $accion === 'validar') {
     $reportesController->mostrarReportes();
 
 }elseif ($vista === 'perfil') {
-    require_once 'controller/perfil.controller.php';
+    require_once 'controller/perfiluser.controller.php';
     $perfilController = new perfilController();
     if($accion ==="actualizar_foto"){
         $perfilController->actualizarFoto();

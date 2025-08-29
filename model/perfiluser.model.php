@@ -1,7 +1,7 @@
 <?php 
 require_once __DIR__ . "/basededatos.php";
 
-class PerfilModel {
+class perfilModel {
     
     private $conn; 
 
@@ -10,7 +10,7 @@ class PerfilModel {
     }
 
 
-    public function obtenerUsuario($userId) {
+    public function obtenerIdUser($userId) {
         $sql ="SELECT u.*, r.nombre AS rol_nombre 
             FROM usuarios u 
             JOIN roles r ON u.rol_id = r.id 
@@ -20,8 +20,8 @@ class PerfilModel {
         $stmt->execute([$userId]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
 
-
     }
+
 
     public function actualizarFoto($userId, $fotoNombre){
         $sql = "UPDATE usuarios SET foto_perfil = ? WHERE id = ?";
