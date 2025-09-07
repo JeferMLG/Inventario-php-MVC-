@@ -30,6 +30,14 @@ class perfilModel {
         
     }
 
+    public function actualizarUsuario($userId, $nombre, $email,$fecha_nacimiento,$telefono,$direccion) {
+        $sql = "UPDATE usuarios SET nombre = ?, email = ?, fecha_nacimiento = ?, telefono = ?, direccion = ? WHERE id = ?";
+        $stmt = $this->conn->prepare($sql);
+        return $stmt->execute([$nombre, $email, $fecha_nacimiento, $telefono, $direccion, $userId]);
+    }
+
+    
+
 }  
 
 

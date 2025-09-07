@@ -84,25 +84,41 @@ if ($vista === 'login' && $accion === 'validar') {
     } else {
         $controller->mostrarMantenimientos();
     }
+
+    // INFORMACION
 } elseif ($vista== 'informacion'){
     require 'view/informacion.view.php';
 
+
+    // REPORTES
 }elseif ($vista === 'reportes') {
     require_once 'controller/reportes.controller.php';
     $reportesController = new reportesController();
     $reportesController->mostrarReportes();
 
+    
+    // PERFIL USUARIO
 }elseif ($vista === 'perfil') {
     require_once 'controller/perfiluser.controller.php';
     $perfilController = new perfilController();
-    if($accion ==="actualizar_foto"){
+
+    if ($accion === "actualizar_foto") {
         $perfilController->actualizarFoto();
-    }else {
-        // Usa el ID de la sesion importante para futuros proyectos
+
+    } elseif ($accion === "actualizar_usuario") {
+        // Procesar la actualización del usuario (POST)
+        $perfilController->actualizarUsuario();
+
+    } elseif ($accion === "editar_usuario") {
+        // Mostrar el formulario de edición con los datos del usuario
+        $id = $_SESSION['usuario_id'] ?? null;
+        $perfilController->mostrarFormularioEditar($id);
+
+    } else {
+        // Mostrar perfil normal
         $id = $_SESSION['usuario_id'] ?? null;
         $perfilController->mostrarUsuario($id);
     }
-
 
 // ERROR SI NO EXISTE VISTA
 } else {
