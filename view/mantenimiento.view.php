@@ -43,7 +43,7 @@
                                     <td>
                                         <div class="action-buttons">
                                             <!-- Botón Editar -->
-                                            <a href="index.php?vista=mantenimiento&accion=editar&id=<?= $row['id'] ?>" 
+                                            <a href="index.php?vista=mantenimiento&accion=actualizar&id=<?= $row['id'] ?>" 
                                             class="edit-btn" title="Editar">
                                                 <i class="fas fa-edit"></i>
                                             </a>
