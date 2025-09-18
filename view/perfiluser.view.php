@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Perfil - Aulapp</title>
-    <link rel="stylesheet" href="/ActualizacionInventario/view/Css/perfiluser.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="view/Css/perfiluser.css">
 </head>
 <body>
     <div class="dashboard-container">
@@ -12,7 +12,7 @@
         <div class="main-content">
             <!-- Encabezado -->
             <div class="header">
-                <h2 class="Perfil-user"><i class="fas fa-user-circle"></i> Perfil de Usuario</h2>
+                <h2 class="Perfil-user"><i class="fas fa-user-circle"></i> Peerfil de Usuario</h2>
                 <div>
                     <a href="index.php?vista=perfil&accion=editar_usuario" class="btn btn-custom">
                     <i class="fas fa-pencil-alt"></i> Editar Perfil
