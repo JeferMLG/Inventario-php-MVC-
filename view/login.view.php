@@ -39,7 +39,7 @@
 
             <!-- Registro -->
             <p class="mt-3 text-center">
-                ¿No tienes una cuenta? 
+                ¿No tienes una cuenta.? 
                 <a href="index.php?vista=register" class="text-decoration-none">Regístrate aquí</a>
             </p>
         </div>
