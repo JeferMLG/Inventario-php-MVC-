@@ -57,8 +57,45 @@ class perfilController {
             exit;
         }
     }
-}
 
+    public function actualizarUsuario() {
+        $userId = $_SESSION['usuario_id']; // usuario logueado
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $nombre = $_POST['nombre'] ?? '';
+            $email = $_POST['email'] ?? '';
+            $fecha_nacimiento = $_POST['fecha_nacimiento'] ?? null;
+            $telefono = $_POST['telefono'] ?? '';
+            $direccion = $_POST['direccion'] ?? '';
+
+            // Validaciones básicas
+            if (empty($nombre) || empty($email)) {
+                header("Location: index.php?vista=perfil&msg=error");
+                exit;
+            }
+
+            // Actualizar en la base de datos
+            $this->model->actualizarUsuario($userId, $nombre, $email, $fecha_nacimiento, $telefono, $direccion);
+
+            // Redirigir con mensaje de éxito
+            header("Location: index.php?vista=perfil&msg=success");
+            exit;
+        } else {
+            // Si no es POST, redirigir al perfil
+            header("Location: index.php?vista=perfil");
+            exit;
+        }
+    }
+
+    public function mostrarFormularioEditar($userId) {
+        $usuario = $this->model->obtenerIdUser($userId);
+        if ($usuario) {
+            require_once __DIR__ . '/../view/editar_perfiluser.view.php';
+        } else {
+            echo "Usuario no encontrado";
+        }
+    }
+}
 
 
 

@@ -12,7 +12,7 @@
         <div class="main-content">
             <!-- Encabezado -->
             <div class="header">
-                <h2 class="Perfil-user"><i class="fas fa-user-circle"></i> Peerfil de Usuario</h2>
+                <h2 class="Perfil-user"><i class="fas fa-user-circle"></i> Perfil de Usuario</h2>
                 <div>
                     <a href="index.php?vista=perfil&accion=editar_usuario" class="btn btn-custom">
                     <i class="fas fa-pencil-alt"></i> Editar Perfil
