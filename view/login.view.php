@@ -6,7 +6,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Tu CSS personalizado -->
-    <link rel="stylesheet" href="../view/css/login.css">
+    <link rel="stylesheet" href="../view/Css/login.css">
     <!-- Favicon (opcional, para evitar warnings) -->
     <link rel="icon" href="data:,">
 </head>
