@@ -39,18 +39,92 @@
             </a>
         </li>
         <li>
-        <div class="calendar" id="calendar">
-        <div class="calendar-header">
-            <button id="prev">«</button>
-            <span id="month-year"></span>
-            <button id="next">»</button>
-        </div>
-        <div class="days">
-            
-        </div>
-    </div>
+    <style>
+        .sidebar {
+    width: 250px;
+    background-color: #461615; /* Color de fondo */
+    color: #f7f7f7; /* Color del texto */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    height: 94.2vh; /* Ocupa toda la altura de la ventana */
+    border-right: 2px solid #4c4646; /* Línea divisoria en el lado derecho */
+    animation: slideInLeft 1s ease-in-out; /* Animación opcional */
+}
+
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 30px 0;
+    opacity: 0;
+    animation: slideInItem 1s ease forwards;
+    animation-delay: calc(0.2s * var(--i));
+}
+
+.Linea{
+    width: 100%; /* Largo de la línea */
+    height: 2px; /* Grosor de la línea */
+    background-color: #000; /* Color de la línea (negro) */
+    margin: -30 ; /* Espaciado arriba y abajo */
+    z-index: 1000; /* Asegura que esté encima de otros elementos */
+}
+
+.sidebar ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s, text-decoration 0.3s;
+}
+
+.sidebar ul li a:hover {
+    transform: scale(1.1);
+    color: #EC1B1A; /* Cambia el color cuando pasas el mouse */
+    text-decoration: underline;
+}
+
+.sidebar ul li i {
+    margin-right: 10px;
+}
+
+/* Animaciones */
+@keyframes fadeInLogo {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInItem {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+    </style>
 
     <script>
+        /* 
         const calendar = document.getElementById('calendar');
         const daysContainer = calendar.querySelector('.days');
         const monthYear = calendar.querySelector('#month-year');
@@ -128,7 +202,7 @@
         nextButton.addEventListener('click', () => changeMonth(1));
 
         
-        renderCalendar(currentMonth, currentYear);
+        renderCalendar(currentMonth, currentYear);*/
     </script>
             <style>
             

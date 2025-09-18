@@ -119,9 +119,13 @@ if ($vista === 'login' && $accion === 'validar') {
         $id = $_SESSION['usuario_id'] ?? null;
         $perfilController->mostrarUsuario($id);
     }
+}elseif ($vista == "prueba") {
+   require 'view/prueba.view.php';
+
+
 
 // ERROR SI NO EXISTE VISTA
-} else {
+}else {
     echo "Vista no encontrada";
 }
 
