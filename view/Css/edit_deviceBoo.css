@@ -1,0 +1,88 @@
+/* Fondo general */
+body {
+    background-color: #E2E3E3; /* Color de fondo */
+}
+
+/* Estilos de la tarjeta */
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: none;
+    max-width: 500px !important;
+    width: 100% !important;
+}
+
+/* Título de la tarjeta */
+.card-title {
+    color: #333333;
+    font-weight: bold;
+}
+
+/* Labels de los campos */
+.form-label {
+    color: #555555;
+    font-size: 1rem;
+}
+
+/* Inputs y textareas */
+.form-control {
+    border-color: #ced4da;
+    border-radius: 5px;
+}
+
+.form-control:focus {
+    border-color: #540707;
+    box-shadow: 0 0 0 0.25rem rgba(84, 7, 7, 0.25);
+}
+
+/* Botón principal */
+.btn-primary {
+    background-color: #540707;
+    border-color: #540707;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 10px 0;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #EC1B1A;
+    border-color: #EC1B1A;
+}
+
+/* Botón secundario */
+.btn-outline-secondary {
+    color: #540707;
+    border-color: #540707;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #EC1B1A;
+    border-color: #EC1B1A;
+    color: #fff;
+}
+
+/* Ajuste de tipografía y espaciado dentro del formulario */
+.card-body form {
+    font-size: 0.95rem;
+}
+
+.card-body form .form-label,
+.card-body form .form-control,
+.card-body form .btn,
+.card-body form .invalid-feedback {
+    font-size: 0.95rem;
+}
+
+.card-body form .form-control {
+    padding: 0.3rem 0.6rem;
+    height: 2rem;
+}
+
+.card-body form .btn {
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+}

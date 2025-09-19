@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Añadir Nuevo Dispositivo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../view/Css/nuevo_dispositivo.css">
+    <link rel="stylesheet" href="../view/Css/nuevo_dispositivoBoo.css">
 </head>
 <body>
     <div class="d-flex justify-content-center align-items-center vh-100">
