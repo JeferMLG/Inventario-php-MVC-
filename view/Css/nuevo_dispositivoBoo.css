@@ -1,0 +1,86 @@
+/* Estilos para el cuerpo de la página */
+body {
+    background-color: #E2E3E3; /* Color de fondo */
+}
+
+/* Estilos para la tarjeta (contenedor principal) */
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: none;
+    max-width: 900px !important; /* Un poco más ancho que el registro */
+    width: 100% !important;
+}
+
+/* Título principal */
+.card-title {
+    color: #333333; 
+    font-weight: bold;
+}
+
+/* Labels */
+.form-label {
+    color: #555555;
+    font-size: 1rem;
+}
+
+/* Inputs y textarea */
+.form-control, .form-select {
+    border-color: #ced4da;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    padding: 0.4rem 0.6rem;
+    height: auto; /* Para que textarea y selects no queden comprimidos */
+}
+
+/* Foco en campos */
+.form-control:focus, 
+.form-select:focus {
+    border-color: #540707;
+    box-shadow: 0 0 0 0.25rem rgba(84, 7, 7, 0.25);
+}
+
+/* Botón principal */
+.btn-primary {
+    background-color: #540707;
+    border-color: #540707;
+    font-size: 1.05rem;
+    font-weight: 600;
+    padding: 0.5rem 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover en botón principal */
+.btn-primary:hover {
+    background-color: #EC1B1A;
+    border-color: #EC1B1A;
+}
+
+/* Botón secundario (Regresar) */
+.btn-outline-secondary {
+    border-color: #540707;
+    color: #540707;
+    font-size: 1.05rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #EC1B1A;
+    border-color: #EC1B1A;
+    color: #fff;
+}
+
+/* Enlaces */
+.text-decoration-none {
+    color: #540707;
+}
+
+.text-decoration-none:hover {
+    color: #EC1B1A;
+}
+
+/* Ajuste general del formulario */
+.card-body form {
+    font-size: 0.95rem;
+}
