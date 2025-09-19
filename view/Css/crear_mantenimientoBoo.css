@@ -1,0 +1,99 @@
+/* Fondo general */
+body {
+    background-color: #E2E3E3; /* gris claro */
+}
+
+/* Card principal */
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: none;
+    max-width: 800px !important;
+    width: 100% !important;
+}
+
+/* Título */
+.card-title {
+    color: #333333;
+    font-weight: bold;
+}
+
+/* Labels */
+.form-label {
+    color: #555555;
+    font-size: 1rem;
+}
+
+/* Inputs, selects y textareas */
+.form-control,
+.form-select {
+    border-color: #ced4da;
+    border-radius: 5px;
+}
+
+/* Enfoque */
+.form-control:focus,
+.form-select:focus {
+    border-color: #540707;
+    box-shadow: 0 0 0 0.25rem rgba(84, 7, 7, 0.25);
+}
+
+/* Botón principal */
+.btn-primary {
+    background-color: #540707;
+    border-color: #540707;
+    font-size: 1.05rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #EC1B1A;
+    border-color: #EC1B1A;
+}
+
+/* Botón secundario */
+.btn-outline-secondary {
+    color: #540707;
+    border-color: #540707;
+    font-size: 1.05rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #EC1B1A;
+    border-color: #EC1B1A;
+    color: #fff;
+}
+
+/* Texto de error */
+.invalid-feedback {
+    font-size: 0.9rem;
+}
+
+/* Ajustes generales al formulario */
+.card-body form {
+    font-size: 0.95rem;
+}
+
+.card-body form .form-label,
+.card-body form .form-control,
+.card-body form .form-select,
+.card-body form .btn,
+.card-body form .invalid-feedback {
+    font-size: 0.95rem;
+}
+
+.card-body form .form-control,
+.card-body form .form-select {
+    padding: 0.35rem 0.6rem;
+    height: 2.3rem;
+}
+
+.card-body form textarea.form-control {
+    height: auto; /* Para que los textarea no queden aplastados */
+    min-height: 80px;
+}
