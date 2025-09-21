@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Perfil</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="view/Css/editar_perfiluser.css">
+    <link rel="stylesheet" href="../view/Css/editar_perfiluser.css">
 </head>
-<body class="bg-light">
+<body>
     <div class="container py-4">
         <!-- Encabezado -->
         <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-2">

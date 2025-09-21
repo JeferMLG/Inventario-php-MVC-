@@ -44,14 +44,11 @@ body {
 
 /* Barra superior */
 .topbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.8); /* Color de fondo */
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    animation: slideDownTopbar 1s ease-in-out;
+    background-color: #7a7474; /* Color de fondo */
+    color: #fff;              /* Texto blanco para contraste */
+    padding: 15px 20px;       /* Espaciado interno */    /* Bordes redondeados opcional */
 }
+
 
 @keyframes slideDownTopbar {
     from {
@@ -61,6 +58,10 @@ body {
         transform: translateY(0);
     }
 }
+.header-custom {
+    background-color: #7a7474 !important;
+    color: #fff !important;
+}   
 
 .topbar h1 {
     margin: 0;

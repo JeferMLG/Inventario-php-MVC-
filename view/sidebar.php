@@ -1,6 +1,6 @@
 <div class="sidebar">
     <div class="logo">
-    <h1 style="font-size: px;" style="width: 100px;" style="height: 30px; " style="max-width: 10%; ">GESTION DE INVENTARIO</h1>
+    <h1 class="sidebar-title" style="font-size: px;" style="width: 100px;" style="height: 30px; " style="max-width: 10%; ">GESTION DE INVENTARIO</h1>
     </div>
     <ul>
         <li>
@@ -40,16 +40,24 @@
         </li>
         <li>
     <style>
-        .sidebar {
+.sidebar {
     width: 250px;
     background-color: #461615; /* Color de fondo */
-    color: #f7f7f7; /* Color del texto */
+    color: #f7f7f7;
     display: flex;
     flex-direction: column;
     padding: 20px;
-    height: 94.2vh; /* Ocupa toda la altura de la ventana */
-    border-right: 2px solid #4c4646; /* Línea divisoria en el lado derecho */
-    animation: slideInLeft 1s ease-in-out; /* Animación opcional */
+    min-height: 94vh;   /* Ocupa toda la pantalla */
+    height: auto;        /* Se adapta si el contenido es más largo */
+    border-right: 2px solid #4c4646;
+    animation: slideInLeft 1s ease-in-out;
+}
+.sidebar-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    margin: 0;
+    padding: 0;
 }
 
 
