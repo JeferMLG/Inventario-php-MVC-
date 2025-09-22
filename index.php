@@ -90,11 +90,11 @@ if ($vista === 'login' && $accion === 'validar') {
     require 'view/informacion.view.php';
 
 
-    // REPORTES
-}elseif ($vista === 'reportes') {
-    require_once 'controller/reportes.controller.php';
-    $reportesController = new reportesController();
-    $reportesController->mostrarReportes();
+    // EQUIPOS Y MANTENIMIENTO
+}elseif ($vista === 'equipos_mantenimiento') {
+    require_once 'controller/equiposMantenimiento.controller.php';
+    $equiposMantenimientoController = new equiposMantenimientoController();
+    $equiposMantenimientoController->MostrarEquiposMantenimiento();
 
     
     // PERFIL USUARIO

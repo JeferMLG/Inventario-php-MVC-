@@ -4,7 +4,7 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Generar Reporte</title>
-            <link rel="stylesheet" href="../view/Css/reportes.css">
+            <link rel="stylesheet" href="../view/Css/equiposMantenimiento.css">
         </head>
     <body>
         
@@ -12,7 +12,7 @@
 
         
         <div class="container">
-            <h2>Reporte de Dispositivos</h2>
+            <h2>Inventario y Mantenimientos</h2>
             
         <form method="GET" action="index.php">
             <input type="hidden" name="vista" value="reportes">

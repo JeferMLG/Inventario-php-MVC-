@@ -15,7 +15,7 @@
         </li>
         <li>
             <a href="index.php?vista=inventario">
-                <i class="fas fa-boxes"></i> Inventario
+                <i class="fas fa-boxes"></i> Equipos
             </a>
         </li>
         <li>
@@ -24,8 +24,8 @@
             </a>
         </li>
         <li>
-            <a href="index.php?vista=reportes">
-                <i class="fas fa-chart-line"></i> Reportes
+            <a href="index.php?vista=equipos_mantenimiento">
+                <i class="fas fa-chart-line"></i> Inventario
             </a>    
         </li>
         <li>

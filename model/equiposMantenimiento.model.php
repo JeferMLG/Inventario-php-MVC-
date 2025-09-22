@@ -1,7 +1,7 @@
 <?php 
 require_once __DIR__ . '/basededatos.php';
 
-class reportesModel {
+class equiposMantenimientoModel {
 
     private $conn; 
 
