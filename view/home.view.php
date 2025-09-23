@@ -15,7 +15,7 @@
             <header class="topbar">
                 <h1>Panel de Gestión</h1>
                 <div class="actions">
-                    <a href="index.php?vista=nuevo_dispositivo" class="btn">Nuevo Dispositivo</a>
+                    <a href="index.php?vista=nuevo_dispositivo" class="btn">Nuevo Equipo</a>
                     <a href="index.php?vista=reportes" class="btn">Generar Reporte</a>
                     <a href="../index.php?vista=logout" class="btn">Salir</a>
                 </div>
@@ -23,7 +23,7 @@
 
             <div class="content">
                 <div class="alert">
-                    <h2>Alertas de Inventario y Mantenimiento</h2>
+                    <h2>Alertas de Inventario y Mantenimiento.</h2>
                     <p>Dispositivos que requieren atención inmediata.</p>
 
                     <div class="clock" id="clock">00:00:00</div>
