@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Añadir Nuevo Dispositivo</title>
+    <title>Añadir Nuevo Equipo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../view/Css/nuevo_dispositivoBoo.css">
+    <link rel="stylesheet" href="../view/Css/nuevo_dispositivo.css">
 </head>
 <body>
     <div class="d-flex justify-content-center align-items-center vh-100">
         <div class="card shadow-sm p-4">
             <div class="card-body">
-                <h2 class="card-title text-center mb-4">Añadir Nuevo Dispositivo</h2>
+                <h2 class="card-title text-center mb-4">Añadir Nuevo Equipo</h2>
 
             <form action="index.php?vista=nuevo_dispositivo&accion=guardar" method="post" class="row g-3 needs-validation" novalidate>
 
                 <div class="col-md-6">
                     <label for="nombre" class="form-label">Nombre:</label>
                     <input type="text" class="form-control" name="nombre" id="nombre" required>
-                    <div class="invalid-feedback">Ingresa el nombre del dispositivo.</div>
+                    <div class="invalid-feedback">Ingresa el nombre del equipo.</div>
                 </div>
 
                 <div class="col-md-6">
@@ -100,7 +100,7 @@
 
                 <div class="col-12 d-flex justify-content-end gap-2 mt-4">
                     <button type="submit" class="btn btn-primary">
-                        <i class="bi bi-plus-circle"></i> Añadir Dispositivo
+                        <i class="bi bi-plus-circle"></i> Añadir Equipo
                     </button>
                     <a href="index.php?vista=home" class="btn btn-outline-secondary">
                         <i class="bi bi-arrow-left"></i> Regresar al Home

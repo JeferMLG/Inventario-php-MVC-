@@ -37,19 +37,19 @@ if ($vista === 'login' && $accion === 'validar') {
     $controller = new HomeController();
     $controller->mostrarHome();
 
-// INVENTARIO
-} elseif ($vista === 'inventario') {
-    require_once 'controller/inventario.controller.php';
-    $inventarioController = new inventarioController();
+// EQUIPOS
+} elseif ($vista === 'equipos') {
+    require_once 'controller/equipos.controller.php';
+    $equiposController = new EquiposController();
 
     if ($accion === 'editar' && isset($_GET['id'])) {
-        $inventarioController->mostrarEditarEquipo($_GET['id']);  // Muestra formulario edición
+        $equiposController->mostrarEditarEquipo($_GET['id']);  // Muestra formulario edición
     } elseif ($accion === 'actualizar') {
-        $inventarioController->actualizarEquipo();                 // Procesa actualización
+        $equiposController->actualizarEquipo();                 // Procesa actualización
     } elseif ($accion === 'eliminar' && isset($_GET['id'])) {
-        $inventarioController->eliminarEquipo($_GET['id']);        // Elimina equipo
+        $equiposController->eliminarEquipo($_GET['id']);        // Elimina equipo
     } else {
-        $inventarioController->mostrarInventario();                // Muestra lista inventario
+        $equiposController->mostrarEquipos();                // Muestra lista equipos
     }
 
 // NUEVO DISPOSITIVO

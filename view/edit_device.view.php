@@ -12,9 +12,9 @@
     <div class="d-flex justify-content-center align-items-center vh-100">
         <div class="card shadow-sm p-4" style="max-width: 700px; width: 100%;">
             <div class="card-body">
-                <h2 class="card-title text-center mb-4">Editar Dispositivo</h2>
+                <h2 class="card-title text-center mb-4">Editar Equipo</h2>
 
-                <form method="POST" action="index.php?vista=inventario&accion=actualizar">
+                <form method="POST" action="index.php?vista=equipos&accion=actualizar">
                     <input type="hidden" name="edit_id" value="<?php echo $equipo['id']; ?>">
 
                     <div class="mb-3">
@@ -49,7 +49,7 @@
                         <button type="submit" class="btn btn-primary">
                             Guardar Cambios
                         </button>
-                        <a href="index.php?vista=inventario" class="btn btn-outline-secondary">
+                        <a href="index.php?vista=equipos" class="btn btn-outline-secondary">
                             Regresar
                         </a>
                     </div>

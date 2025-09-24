@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/basededatos.php';
 
-class InventarioModel {
+class EquiposModel {
     private $conn;
 
     public function __construct() {

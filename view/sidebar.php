@@ -14,7 +14,7 @@
             </a>
         </li>
         <li>
-            <a href="index.php?vista=inventario">
+            <a href="index.php?vista=equipos">
                 <i class="fas fa-boxes"></i> Equipos
             </a>
         </li>

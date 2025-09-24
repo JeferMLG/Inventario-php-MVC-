@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventario.</title>
-    <link rel="stylesheet" href="../view/Css/inventario.css">
+    <title>Inventario</title>
+    <link rel="stylesheet" href="../view/Css/equipos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
@@ -13,7 +13,7 @@
         
         <div class="main-content">
             <header class="topbar">
-                <h1>Gestión de Inventario</h1>
+                <h1>Gestión de Equipos</h1>
             </header>
             
             <div class="content">
@@ -44,13 +44,13 @@
                                 <td>
                                     <div class="action-buttons">
                                         <!-- Botón Editar -->
-                                        <a href="index.php?vista=inventario&accion=editar&id=<?= $row['id'] ?>" 
+                                        <a href="index.php?vista=equipos&accion=editar&id=<?= $row['id'] ?>" 
                                            class="edit-btn" title="Editar">
                                             <i class="fas fa-edit"></i>
                                         </a>
 
                                         <!-- Botón Eliminar -->
-                                        <a href="index.php?vista=inventario&accion=eliminar&id=<?= $row['id'] ?>" 
+                                        <a href="index.php?vista=equipos&accion=eliminar&id=<?= $row['id'] ?>" 
                                            class="delete-btn" title="Eliminar" 
                                            onclick="return confirm('¿Está seguro de que desea eliminar este dispositivo?');">
                                             <i class="fas fa-trash"></i>
